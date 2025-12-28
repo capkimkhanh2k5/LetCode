@@ -3,7 +3,7 @@ package Easy;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P1_TwoSum {
+public class P1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         // Key là giá trị, value là index của nums
@@ -23,7 +23,7 @@ public class P1_TwoSum {
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
-        P1_TwoSum p1 = new P1_TwoSum();
+        P1 p1 = new P1();
         
         int[] res = p1.twoSum(nums, target);
         for (int i = 0; i < res.length; i++) {

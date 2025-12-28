@@ -3,7 +3,7 @@ package Easy;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P9_Palindrome_Number {
+public class P9 {
     public boolean isPalindrome(int x) {
         if(x < 0) return false;
 
@@ -43,7 +43,7 @@ public class P9_Palindrome_Number {
 
 
     public static void main(String[] args) {
-        P9_Palindrome_Number p = new P9_Palindrome_Number();
+        P9 p = new P9();
 
         System.out.println(p.isPalindrome(123454321));
 
