@@ -27,9 +27,26 @@ public class P9_Palindrome_Number {
         return true;
     }
 
+    public boolean isPalindrome2(int x) {
+        if(x < 0) return false;
+
+        int rev = 0;
+        int num = x;
+        while(num > 0){
+            rev = rev * 10 + num % 10;
+
+            num = num / 10;
+        }
+
+        return x == rev;
+    }
+
 
     public static void main(String[] args) {
         P9_Palindrome_Number p = new P9_Palindrome_Number();
+
         System.out.println(p.isPalindrome(123454321));
+
+        System.out.println(p.isPalindrome2(123454321));
     }
 }
