@@ -10,6 +10,7 @@ public class P8 {
 
         int sign = 1;
         int i = 0;
+        
         char firstChar = s.charAt(0);
         if (firstChar == '-') {
             sign = -1;
