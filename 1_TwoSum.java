@@ -1,20 +1,18 @@
 import java.util.HashMap;
-import java.util.Map;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        // Key là giá trị, value là index của nums
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < nums.length; i++) {
-            int tmp = target - nums[i];
-            if (map.containsKey(tmp)) {
-                // Lấy vị trí
-                return new int[] {map.get(tmp), i};
+        for (int i = 0; i < nums.length; i ++)
+        {
+            int secondNum = target - nums[i];
+
+            if(map.containsKey(secondNum)){
+                return new int[]{map.get(secondNum), i};
             }
-            map.put(nums[i], i);
         }
 
-        return new int[]{};
+        return null;
     }
 }
