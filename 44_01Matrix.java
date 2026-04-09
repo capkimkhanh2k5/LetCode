@@ -3,57 +3,50 @@ import java.util.Queue;
 
 class Solution {
 
-    public class Pair {
-        int x,y;
-        Pair(int x, int y)
-        {
+    class Pair {
+        int x, y;
+        Pair(int x, int y) {
             this.x = x;
             this.y = y;
         }
-
-        // public int getX(){
-        //     return this.x;
-        // }
-        // public int getY()
-        // {
-        //     return this.y;
-        // }
-    };
+    }
 
     public int[][] updateMatrix(int[][] mat) {
-        Queue<Pair> q = new LinkedList<>();
-
         int m = mat.length;
         int n = mat[0].length;
 
-        for (int i = 0; i < m; i ++)
-        {
-            for (int j = 0; j < n; j ++)
-            {
-                if(mat[i][j] == 0)
-                {
-                    q.offer(new Pair(i, j)); //Lưu vị trí có gtri 0
+        Queue<Pair> q = new LinkedList<>();
+
+        // Step 1: init
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] == 0) {
+                    q.offer(new Pair(i, j));
+                } else {
+                    mat[i][j] = Integer.MAX_VALUE;
                 }
             }
         }
 
-        //Lấy các giá trị 0 và tiến hành đệ quy tìm minStep
+        int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
 
-        return null;
-    }
+        // Step 2: BFS
+        while (!q.isEmpty()) {
+            Pair cur = q.poll();
 
+            for (int[] d : dirs) {
+                int nx = cur.x + d[0];
+                int ny = cur.y + d[1];
 
-    public void update(int[][] mat, int m, int n, int x, int y)
-    {
-        if(x < 0 || x >= m || y < 0 || y >= n)
-        {
-            return;
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                    if (mat[nx][ny] > mat[cur.x][cur.y] + 1) {
+                        mat[nx][ny] = mat[cur.x][cur.y] + 1;
+                        q.offer(new Pair(nx, ny));
+                    }
+                }
+            }
         }
-        
-        if(mat[x][y] != 0)
-        {
-            
-        }
 
+        return mat;
     }
 }
